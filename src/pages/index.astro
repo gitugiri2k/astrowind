@@ -104,24 +104,26 @@ const metadata = {
 
   <!-- CallToAction Widget *********** -->
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
+<!-- CallToAction Widget *********** -->
 
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+<CallToAction
+  actions={[
+    {
+      variant: 'primary',
+      text: 'Get in Touch',
+      href: '#contact',
+      target: '_self',
+      icon: 'tabler:phone',
+    },
+  ]}
+>
+  <Fragment slot="title">
+    Elevate Your Business with <span class="text-accent dark:text-white highlight">AA Cognitech</span>?
+  </Fragment>
+
+  <Fragment slot="subtitle">
+    Let’s start working together to fulfill your IT staffing and consulting needs. Our experienced team is ready to help you find the best talent for your business challenges. Don’t wait—reach out now!
+  </Fragment>
+</CallToAction>
+
 </Layout>
