@@ -25,9 +25,10 @@ import '@fontsource-variable/inter';
     --aw-font-serif: 'Inter Variable';
     --aw-font-heading: 'Inter Variable';
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Keeping the existing bright blue colors */
+    --aw-color-primary: rgb(1 97 239); /* Bright blue */
+    --aw-color-secondary: rgb(1 84 207); /* Slightly darker blue */
+    --aw-color-accent: rgb(1 97 239); /* Changed to match primary blue instead of purple */
 
     --aw-color-text-heading: rgb(0 0 0);
     --aw-color-text-default: rgb(16 16 16);
@@ -37,7 +38,7 @@ import '@fontsource-variable/inter';
     --aw-color-bg-page-dark: rgb(3 6 32);
 
     ::selection {
-      background-color: lavender;
+      background-color: rgba(1, 97, 239, 0.2); /* Light blue selection */
     }
   }
 
@@ -46,9 +47,10 @@ import '@fontsource-variable/inter';
     --aw-font-serif: 'Inter Variable';
     --aw-font-heading: 'Inter Variable';
 
+    /* Same bright blue for dark mode */
     --aw-color-primary: rgb(1 97 239);
     --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-accent: rgb(1 97 239); /* Changed to match primary blue instead of purple */
 
     --aw-color-text-heading: rgb(247, 248, 248);
     --aw-color-text-default: rgb(229 236 246);
@@ -56,8 +58,8 @@ import '@fontsource-variable/inter';
     --aw-color-bg-page: rgb(3 6 32);
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgb(1 97 239);
+      color: white;
     }
   }
 </style>

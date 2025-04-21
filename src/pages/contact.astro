@@ -3,77 +3,111 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact Us | AA Cognitech',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText
+    tagline="Contact Us"
+    title="Let's Discuss Your IT Staffing Needs"
+    subtitle="Reach out to our team to learn how AA Cognitech can support your business with expert IT staffing, recruitment, and consulting services."
+  />
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Get in Touch with Our Team"
+    subtitle="Fill out the form below and one of our IT staffing specialists will contact you shortly to discuss how we can meet your specific needs."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Full Name',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        label: 'Email Address',
+      },
+      {
+        type: 'text',
+        name: 'company',
+        label: 'Company Name',
       },
     ]}
     textarea={{
-      label: 'Message',
+      label: 'Tell us about your staffing needs',
+      placeholder: 'Please describe your requirements, timeline, and any specific skills you are looking for...',
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'By submitting this form, you consent to AA Cognitech contacting you regarding your inquiry. We respect your privacy and will not share your information with third parties.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    button="Submit Inquiry"
+    description="Our team typically responds within 1 business day."
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="We are here to help!"
+    title="Contact Information"
+    subtitle="Multiple ways to connect with our team"
+    columns={3}
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: 'Staffing Inquiries',
+        description:
+          'For questions about contract staffing, permanent placement, or our global resource pool, connect with our staffing specialists.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Contact sales',
+        title: 'Recruitment Services',
         description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+          'Learn more about our Recruitment-as-a-Service (RaaS) and how we can streamline your hiring process.',
+        icon: 'tabler:search',
       },
       {
-        title: 'Technical support',
+        title: 'IT Consulting',
         description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+          'Discuss how our consulting services can help optimize your IT operations and drive business growth.',
+        icon: 'tabler:bulb',
       },
       {
         title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
+        description: '+1 (800) 123-4567',
+        icon: 'tabler:phone',
       },
       {
         title: 'Email',
-        description: 'contact@support.com',
+        description: 'info@aacognitech.com',
         icon: 'tabler:mail',
       },
       {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        title: 'Office Location',
+        description: '123 Tech Park Avenue, Suite 500, San Francisco, CA 94105',
         icon: 'tabler:map-pin',
       },
     ]}
   />
+
+  <!-- Social Media Section -->
+  <div class="max-w-3xl mx-auto py-12 text-center">
+    <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-6">Follow Us on Social Media</h3>
+    <div class="flex justify-center gap-8">
+      <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition">
+        <Icon name="tabler:brand-linkedin" class="w-8 h-8" />
+      </a>
+      <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition">
+        <Icon name="tabler:brand-twitter" class="w-8 h-8" />
+      </a>
+      <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition">
+        <Icon name="tabler:brand-facebook" class="w-8 h-8" />
+      </a>
+    </div>
+  </div>
 </Layout>

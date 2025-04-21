@@ -1,0 +1,210 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Technologies | AA Cognitech',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Technologies"
+    title="Expert Staffing Across Key Technology Domains"
+    subtitle="We specialize in connecting businesses with skilled professionals across a wide range of cutting-edge technologies to drive innovation and digital transformation."
+    actions={[{ variant: 'primary', text: 'Contact Us', href: '/contact' }]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AA Cognitech Technologies',
+    }}
+  />
+
+  <!-- Features2 Widget for Technologies ************** -->
+
+  <Features2
+    title="Our Technology Expertise"
+    subtitle="At AA Cognitech, we specialize in connecting businesses with top talent across these key technology domains."
+    columns={3}
+    items={[
+      {
+        title: 'Software Development',
+        description:
+          'Access skilled developers proficient in various programming languages, frameworks, and development methodologies. From web and mobile applications to enterprise software, we provide talent that can bring your projects to life.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Cloud Computing',
+        description:
+          'Find experts in AWS, Azure, Google Cloud, and other platforms to help design, migrate, and manage your cloud infrastructure. Our professionals can optimize your cloud strategy for performance, security, and cost-efficiency.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Data Science & AI',
+        description:
+          'Connect with specialists in machine learning, deep learning, and artificial intelligence to transform your data into valuable insights and innovative solutions. Our data professionals can help you harness the power of predictive analytics.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Cybersecurity',
+        description:
+          'Strengthen your security posture with professionals specialized in threat detection, risk assessment, and security architecture. Our experts help protect your digital assets and ensure regulatory compliance.',
+        icon: 'tabler:shield',
+      },
+      {
+        title: 'DevOps & IT Operations',
+        description:
+          'Streamline your development and operations with professionals skilled in CI/CD, infrastructure automation, and system administration. Our DevOps experts help improve deployment frequency and reliability.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'ERP & CRM',
+        description:
+          'Optimize your business processes with specialists in enterprise resource planning and customer relationship management systems. From implementation to customization, our experts ensure your systems meet business needs.',
+        icon: 'tabler:database',
+      },
+    ]}
+  />
+
+  <!-- Content Widget for Software Development **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Front-End Development',
+        description:
+          'Expert developers in React, Angular, Vue.js, and other modern JavaScript frameworks to create engaging user interfaces.',
+        icon: 'tabler:layout',
+      },
+      {
+        title: 'Back-End Development',
+        description:
+          'Skilled professionals in Java, Python, Node.js, .NET, and other server-side technologies to build robust application foundations.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Mobile Development',
+        description:
+          'Specialists in iOS, Android, and cross-platform frameworks like React Native and Flutter for creating powerful mobile experiences.',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'Full-Stack Development',
+        description:
+          'Versatile developers who can handle both client and server-side development for cohesive application development.',
+        icon: 'tabler:stack',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Software Development',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Software Development Expertise</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget for Cloud Computing **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'Cloud Architecture',
+        description:
+          'Design scalable, resilient cloud infrastructures tailored to your business requirements and performance needs.',
+        icon: 'tabler:hierarchy',
+      },
+      {
+        title: 'Cloud Migration',
+        description:
+          'Seamlessly transition your applications and data from on-premises to cloud environments with minimal disruption.',
+        icon: 'tabler:transfer',
+      },
+      {
+        title: 'Multi-Cloud Management',
+        description:
+          'Effectively manage resources across multiple cloud providers to optimize performance and avoid vendor lock-in.',
+        icon: 'tabler:cloud-computing',
+      },
+      {
+        title: 'Serverless Computing',
+        description:
+          'Leverage event-driven architectures and serverless frameworks to reduce operational complexity and costs.',
+        icon: 'tabler:server-bolt',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Cloud Computing',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Cloud Computing Expertise</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget for Data Science & AI **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Machine Learning',
+        description:
+          'Implement predictive models and algorithms that learn from data to automate decision-making processes.',
+        icon: 'tabler:chart-dots',
+      },
+      {
+        title: 'Data Engineering',
+        description:
+          'Build robust data pipelines and infrastructure to collect, process, and store large volumes of data efficiently.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Big Data Analytics',
+        description:
+          'Extract meaningful insights from massive datasets using technologies like Hadoop, Spark, and advanced analytics tools.',
+        icon: 'tabler:chart-pie',
+      },
+      {
+        title: 'Natural Language Processing',
+        description:
+          'Develop systems that can understand, interpret, and generate human language for chatbots, sentiment analysis, and more.',
+        icon: 'tabler:message-language',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Data Science & AI',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Data Science & AI Expertise</h3>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'View Industries',
+        href: '/industries',
+      },
+    ]}
+    title="Looking for technology specialists?"
+    subtitle="Connect with AA Cognitech today to access top tech talent across these domains and accelerate your digital transformation journey."
+  />
+</Layout>

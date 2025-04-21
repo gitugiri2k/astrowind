@@ -3,11 +3,10 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'Services | AA Cognitech',
 };
 ---
 
@@ -16,197 +15,134 @@ const metadata = {
 
   <Hero
     tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
+    title="Expert IT Staffing & Consulting Solutions"
+    subtitle="We provide comprehensive IT staffing, recruitment, and consulting services tailored to meet your business needs, with flexible onshore and offshore options to optimize your workforce."
+    actions={[{ variant: 'primary', text: 'Contact Us', href: '/contact' }]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AA Cognitech Services',
     }}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Features2 Widget for Main Services ************** -->
 
   <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
+    title="Our IT Staffing & Consulting Services"
+    subtitle="Discover our comprehensive range of solutions designed to meet your IT talent and business needs."
     columns={3}
     items={[
       {
-        title: 'Educational',
+        title: 'Contract Staffing',
         description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
+          'We offer flexible staffing solutions for short-term projects, ensuring you have the right expertise when you need it. Our contract staffing services help you quickly scale your teams without long-term commitments.',
+        icon: 'tabler:clock',
       },
       {
-        title: 'Interior Design',
+        title: 'Permanent Placement',
         description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
+          'Let us help you find the perfect fit for long-term positions, with access to a wide pool of skilled candidates. Our thorough vetting process ensures you get qualified professionals who align with your company culture.',
+        icon: 'tabler:user-check',
       },
       {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
-      },
-      {
-        title: 'E-commerce',
+        title: 'Recruitment-as-a-Service (RaaS)',
         description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
+          'A scalable and cost-effective solution for companies seeking recruitment assistance without the overhead. RaaS provides you with dedicated recruiting resources that can be adjusted based on your hiring needs.',
+        icon: 'tabler:refresh',
       },
       {
-        title: 'Blog',
+        title: 'IT Consulting',
         description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
+          'Our consulting services help businesses optimize their IT operations, improve processes, and drive growth. We provide expert guidance on technology strategies, implementation, and management.',
+        icon: 'tabler:bulb',
       },
       {
-        title: 'Business',
+        title: 'Global Resource Pool',
         description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
+          'Access our extensive, global network of IT professionals with specialized skills in various technologies. Our global talent pool ensures you find the right expertise regardless of geographic boundaries.',
+        icon: 'tabler:world',
       },
       {
-        title: 'Branding',
+        title: 'Onshore/Offshore Staffing',
         description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
-      },
-      {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
+          'Choose from onshore staffing for closer collaboration or offshore staffing for cost-effective solutions and flexible working hours. We provide flexible models that adapt to your business requirements.',
+        icon: 'tabler:map-pin',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget for Onshore/Offshore Options **************** -->
 
   <Content
     isReversed
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Local Collaboration',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
+          'Work with professionals in your time zone for real-time communication and seamless integration with your in-house teams.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Customization Tools',
+        title: 'Cultural Alignment',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
+          'Benefit from professionals who understand your market, regulations, and business practices for smoother project execution.',
+        icon: 'tabler:building',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: 'Face-to-Face Meetings',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
+          'Facilitate in-person interactions when needed for critical project phases or strategic discussions.',
+        icon: 'tabler:message-circle',
       },
       {
-        title: 'Preview and Mockup Views',
-        description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
+        title: 'Seamless Integration',
+        description: 'Easily integrate onshore professionals into your existing team structure and workflows.',
+        icon: 'tabler:puzzle',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Onshore Staffing Benefits',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Onshore Staffing Benefits</h3>
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget for Offshore **************** -->
 
   <Content
-    isAfterContent
     items={[
       {
-        title: 'Time Savings',
-        description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
-      },
-      {
-        title: 'Professional Appearance',
-        description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Cost-Efficiency',
-        description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
+        title: 'Cost Efficiency',
+        description: 'Significantly reduce staffing costs while maintaining high-quality talent and deliverables.',
         icon: 'tabler:coin',
       },
       {
-        title: 'Instant Download',
-        description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
+        title: '24/7 Productivity',
+        description: 'Leverage time zone differences to achieve round-the-clock development and support capabilities.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Scalability',
+        description: 'Quickly scale your team up or down based on project requirements and business needs.',
+        icon: 'tabler:chart-arrows',
+      },
+      {
+        title: 'Global Talent Access',
+        description: 'Tap into specialized skills that might be scarce or expensive in your local market.',
+        icon: 'tabler:world-search',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Offshore Staffing Benefits',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Offshore Staffing Benefits</h3>
     </Fragment>
   </Content>
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
-      {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
-      },
-      {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
-      },
-      {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
-      },
-    ]}
-    callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:chevron-right',
-    }}
-  />
 
   <!-- CallToAction Widget *********** -->
 
@@ -214,11 +150,16 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Learn More',
+        href: '/about',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
+    title="Ready to optimize your IT workforce?"
+    subtitle="Connect with AA Cognitech today to discuss your staffing needs and discover how our services can drive your business forward."
   />
 </Layout>

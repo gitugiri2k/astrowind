@@ -1,0 +1,210 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Industries We Serve | AA Cognitech',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Industries"
+    title="Specialized IT Solutions Across Diverse Industries"
+    subtitle="We deliver tailored IT staffing and consulting services to a wide range of sectors, helping businesses meet their unique technology challenges and opportunities."
+    actions={[{ variant: 'primary', text: 'Contact Us', href: '/contact' }]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AA Cognitech Industries',
+    }}
+  />
+
+  <!-- Features2 Widget for Industries ************** -->
+
+  <Features2
+    title="Industries We Serve"
+    subtitle="We provide specialized IT staffing and consulting services to meet the unique needs of various industries."
+    columns={3}
+    items={[
+      {
+        title: 'Technology',
+        description:
+          'Harness the power of innovation with skilled professionals who understand the fast-paced technology sector. We help tech companies stay competitive by providing top talent for development, infrastructure, and specialized technical roles.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Financial Services',
+        description:
+          'Ensure your financial systems run smoothly with expert talent who understand the complexities of banking, insurance, and fintech. We provide specialists familiar with compliance, security, and financial software systems.',
+        icon: 'tabler:currency-dollar',
+      },
+      {
+        title: 'Healthcare & Life Sciences',
+        description:
+          'Support your healthcare operations with specialized IT expertise in medical systems, compliance, and patient data management. Our professionals understand HIPAA regulations and healthcare-specific technology needs.',
+        icon: 'tabler:heartbeat',
+      },
+      {
+        title: 'E-commerce & Retail',
+        description:
+          'Enhance your digital presence with experienced IT professionals who understand modern retail challenges. From online storefronts to inventory systems, we provide talent to boost your retail technology stack.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Cybersecurity',
+        description:
+          'Protect your business with highly skilled cybersecurity experts who stay ahead of emerging threats. Our specialists help implement robust security measures and respond effectively to potential vulnerabilities.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Government & Public Sector',
+        description:
+          'Support public sector initiatives with proven IT solutions that meet stringent government requirements. Our professionals understand government compliance and can navigate complex public sector environments.',
+        icon: 'tabler:building-monument',
+      },
+    ]}
+  />
+
+  <!-- Content Widget for Technology Industry **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Software Development Specialists',
+        description:
+          'Access skilled developers across various programming languages and frameworks to accelerate your product development.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Infrastructure Experts',
+        description:
+          'Strengthen your technical foundation with professionals specializing in cloud architecture, DevOps, and system administration.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Product Management',
+        description: 'Enhance your product strategy and execution with experienced product managers and analysts.',
+        icon: 'tabler:chart-dots',
+      },
+      {
+        title: 'QA & Testing Professionals',
+        description: 'Ensure product quality with dedicated quality assurance engineers and testing specialists.',
+        icon: 'tabler:test-pipe',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Technology Industry Solutions',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Technology Industry Solutions</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget for Financial Services **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'Regulatory Compliance',
+        description:
+          'Stay compliant with industry regulations with specialists who understand financial compliance requirements.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Financial Systems Integration',
+        description:
+          'Seamlessly integrate complex financial systems with experts in banking software and financial technology.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'Data Security',
+        description:
+          'Protect sensitive financial data with cybersecurity professionals specialized in financial sector threats.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Fintech Innovation',
+        description:
+          'Drive financial technology innovation with specialists in emerging technologies like blockchain and AI for finance.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Financial Services Solutions',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Financial Services Solutions</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget for Healthcare **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Healthcare IT Compliance',
+        description:
+          'Navigate complex healthcare regulations with specialists in HIPAA, HITECH, and other compliance frameworks.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Electronic Health Records',
+        description:
+          'Optimize EHR systems with professionals experienced in healthcare data management and patient records.',
+        icon: 'tabler:first-aid-kit',
+      },
+      {
+        title: 'Telehealth Solutions',
+        description:
+          'Expand virtual care capabilities with experts in telehealth platforms and remote patient monitoring.',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'Healthcare Analytics',
+        description:
+          'Transform patient data into actionable insights with specialists in healthcare analytics and reporting.',
+        icon: 'tabler:activity',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Healthcare Solutions',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Healthcare & Life Sciences Solutions
+      </h3>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Explore Services',
+        href: '/services',
+      },
+    ]}
+    title="Need specialized IT talent for your industry?"
+    subtitle="Connect with AA Cognitech today to discuss how our industry-specific expertise can help your business thrive in an increasingly competitive landscape."
+  />
+</Layout>

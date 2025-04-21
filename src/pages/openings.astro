@@ -1,0 +1,358 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Job Openings | AA Cognitech',
+};
+
+// This would typically come from a database or CMS
+const jobOpenings = [
+  {
+    id: 'job-001',
+    title: 'Senior IT Recruiter',
+    location: 'Remote',
+    type: 'Full-time',
+    category: 'Recruitment',
+    description:
+      'We are seeking an experienced IT Recruiter to join our team. In this role, you will be responsible for sourcing, screening, and placing IT professionals across various client projects.',
+    requirements: [
+      'Minimum 3-5 years of experience in IT recruitment',
+      'Strong understanding of technical roles and requirements',
+      'Excellent communication and relationship-building skills',
+      'Experience with applicant tracking systems and recruitment tools',
+      "Bachelor's degree in Human Resources, Business, or related field preferred",
+    ],
+    postedDate: 'April 10, 2025',
+  },
+  {
+    id: 'job-002',
+    title: 'Technical Account Manager',
+    location: 'New York, NY',
+    type: 'Full-time',
+    category: 'Account Management',
+    description:
+      'As a Technical Account Manager, you will serve as the primary liaison between our clients and technical teams, ensuring successful IT staffing placements and client satisfaction.',
+    requirements: [
+      'Minimum 4+ years of experience in technical account management or similar role',
+      'Strong technical background with understanding of IT infrastructure and software development',
+      'Proven track record of managing client relationships and expectations',
+      'Excellent communication and presentation skills',
+      "Bachelor's degree in Computer Science, Business, or related field required",
+    ],
+    postedDate: 'April 8, 2025',
+  },
+  {
+    id: 'job-003',
+    title: 'IT Consultant - Cloud Solutions',
+    location: 'Chicago, IL',
+    type: 'Contract (6 months)',
+    category: 'Consulting',
+    description:
+      'We are looking for an experienced Cloud Solutions Consultant to provide expert guidance on cloud migration strategies, infrastructure optimization, and implementation for our clients.',
+    requirements: [
+      'Minimum 5+ years of experience in cloud computing (AWS, Azure, or GCP)',
+      'Strong understanding of cloud architecture, security, and compliance',
+      'Experience with migrations from on-premises to cloud environments',
+      'Excellent problem-solving and analytical skills',
+      'Relevant certifications (AWS Solutions Architect, Azure Solutions Expert, etc.) preferred',
+    ],
+    postedDate: 'April 5, 2025',
+  },
+  {
+    id: 'job-004',
+    title: 'DevOps Engineer',
+    location: 'Remote',
+    type: 'Full-time',
+    category: 'Technical',
+    description:
+      'Join our team as a DevOps Engineer to help our clients implement and manage CI/CD pipelines, automate infrastructure deployment, and improve development workflows.',
+    requirements: [
+      'Minimum 3+ years of experience in DevOps or SRE roles',
+      'Strong knowledge of containerization technologies (Docker, Kubernetes)',
+      'Experience with infrastructure as code (Terraform, CloudFormation)',
+      'Familiarity with CI/CD tools (Jenkins, GitHub Actions, GitLab CI)',
+      'Excellent troubleshooting and problem-solving skills',
+    ],
+    postedDate: 'April 3, 2025',
+  },
+  {
+    id: 'job-005',
+    title: 'Data Scientist',
+    location: 'Boston, MA',
+    type: 'Full-time',
+    category: 'Technical',
+    description:
+      'We are seeking a talented Data Scientist to join our team and help our clients leverage data-driven insights to solve complex business problems.',
+    requirements: [
+      'Minimum 3+ years of experience in data science or related field',
+      'Strong programming skills in Python, R, or similar languages',
+      'Experience with machine learning frameworks and statistical analysis',
+      'Knowledge of data visualization tools and techniques',
+      "Master's degree in Computer Science, Statistics, or related field preferred",
+    ],
+    postedDate: 'April 1, 2025',
+  },
+  {
+    id: 'job-006',
+    title: 'Business Development Manager',
+    location: 'San Francisco, CA',
+    type: 'Full-time',
+    category: 'Business Development',
+    description:
+      'As a Business Development Manager, you will identify new business opportunities, develop client relationships, and drive growth for our IT staffing and consulting services.',
+    requirements: [
+      'Minimum 5+ years of experience in business development or sales, preferably in IT services',
+      'Strong network and relationship-building skills',
+      'Proven track record of meeting or exceeding sales targets',
+      'Excellent presentation and negotiation skills',
+      "Bachelor's degree in Business, Marketing, or related field required",
+    ],
+    postedDate: 'March 28, 2025',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero
+    tagline="Current Opportunities"
+    title="Explore Our Job Openings"
+    subtitle="Discover exciting career opportunities at AA Cognitech and with our clients. Find the perfect role that matches your skills and career aspirations."
+    actions={[
+      { variant: 'primary', text: 'Join Talent Community', href: '/talent-community' },
+      { variant: 'secondary', text: 'Filter Jobs', href: '#job-filters' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AA Cognitech Job Openings',
+    }}
+  />
+
+  <!-- Job Filters Section -->
+  <section class="py-8 bg-gray-50 dark:bg-slate-800" id="job-filters">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md">
+        <h2 class="text-xl font-bold mb-4">Filter Jobs</h2>
+        <form class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div>
+            <label for="category" class="block text-sm font-medium mb-1">Category</label>
+            <select
+              id="category"
+              name="category"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-md focus:ring-primary-500 focus:border-primary-500 dark:bg-slate-800"
+            >
+              <option value="">All Categories</option>
+              <option value="recruitment">Recruitment</option>
+              <option value="account-management">Account Management</option>
+              <option value="consulting">Consulting</option>
+              <option value="technical">Technical</option>
+              <option value="business-development">Business Development</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="location" class="block text-sm font-medium mb-1">Location</label>
+            <select
+              id="location"
+              name="location"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-md focus:ring-primary-500 focus:border-primary-500 dark:bg-slate-800"
+            >
+              <option value="">All Locations</option>
+              <option value="remote">Remote</option>
+              <option value="new-york">New York, NY</option>
+              <option value="chicago">Chicago, IL</option>
+              <option value="boston">Boston, MA</option>
+              <option value="san-francisco">San Francisco, CA</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="type" class="block text-sm font-medium mb-1">Job Type</label>
+            <select
+              id="type"
+              name="type"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 rounded-md focus:ring-primary-500 focus:border-primary-500 dark:bg-slate-800"
+            >
+              <option value="">All Types</option>
+              <option value="full-time">Full-time</option>
+              <option value="contract">Contract</option>
+            </select>
+          </div>
+
+          <div class="flex items-end">
+            <button type="submit" class="w-full btn btn-primary">Apply Filters</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Listings Section -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold mb-8">Available Positions</h2>
+
+      <div class="space-y-6">
+        {
+          jobOpenings.map((job) => (
+            <div class="border border-gray-200 dark:border-slate-600 rounded-lg p-6 bg-white dark:bg-slate-900 shadow-md hover:shadow-lg transition-shadow">
+              <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                <div>
+                  <h3 class="text-xl font-bold mb-2">{job.title}</h3>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-slate-700">
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      {job.location}
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200">
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                      {job.type}
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-slate-700">
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                        />
+                      </svg>
+                      {job.category}
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-slate-700">
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                      Posted: {job.postedDate}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0">
+                  <a href={`/job-openings/${job.id}`} class="btn btn-primary">
+                    View Details
+                  </a>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <p class="mb-4">{job.description}</p>
+
+                <h4 class="font-semibold mb-2">Requirements:</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                  {job.requirements.map((req) => (
+                    <li>{req}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Features2 Widget for Job Benefits ************** -->
+  <Features2
+    title="Why Work With Us"
+    subtitle="Discover the benefits of joining AA Cognitech or working with us as your staffing partner"
+    columns={3}
+    items={[
+      {
+        title: 'Career Growth',
+        description: 'Access diverse opportunities across industries and technologies to advance your career path.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Competitive Compensation',
+        description: 'Enjoy competitive salaries, comprehensive benefits, and performance-based incentives.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Professional Development',
+        description: 'Benefit from continuous learning opportunities, certifications, and skill enhancement programs.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Work-Life Balance',
+        description: 'Flexible work arrangements designed to support your personal and professional responsibilities.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Diverse Projects',
+        description: 'Work on challenging and diverse projects across different industries and technologies.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Supportive Community',
+        description: 'Join a community of professionals committed to excellence, innovation, and mutual growth.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Our Talent Community',
+        href: '/talent-community',
+      },
+    ]}
+    title="Don't see the perfect fit?"
+    subtitle="Submit your resume to our talent community and get notified when relevant opportunities become available."
+  />
+</Layout>

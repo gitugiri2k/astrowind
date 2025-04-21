@@ -1,0 +1,252 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Careers | AA Cognitech',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Careers"
+    title="Join Our Team of IT Professionals"
+    subtitle="Discover rewarding career opportunities at AA Cognitech and be part of a dynamic team dedicated to connecting businesses with top IT talent worldwide."
+    actions={[
+      { variant: 'primary', text: 'Search Openings', href: '/openings' },
+      { variant: 'secondary', text: 'Join Talent Community', href: '/talent' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AA Cognitech Careers',
+    }}
+  />
+
+  <!-- Content Widget for Why Join **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Growth Opportunities',
+        description: 'Continuous learning and advancement opportunities in a rapidly evolving industry.',
+        icon: 'tabler:chart-arrows',
+      },
+      {
+        title: 'Collaborative Culture',
+        description: 'Work with diverse professionals in an environment that values teamwork and innovation.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Work-Life Balance',
+        description: 'Flexible work arrangements designed to help you maintain personal well-being.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Competitive Benefits',
+        description: 'Comprehensive compensation packages including health benefits, retirement plans, and more.',
+        icon: 'tabler:heart',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Why Join AA Cognitech',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Why Join AA Cognitech</h3>
+      <p>
+        At AA Cognitech, we believe our success begins with our people. We foster an environment where talent thrives
+        and innovation flourishes.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget for Career Areas ************** -->
+
+  <Features2
+    title="Explore Career Areas"
+    subtitle="Discover opportunities across our diverse business units and teams."
+    columns={3}
+    items={[
+      {
+        title: 'IT Recruitment',
+        description:
+          'Join our talent acquisition team to help businesses find the perfect IT professionals for their needs.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Account Management',
+        description:
+          'Build relationships with clients and ensure their staffing needs are met with precision and care.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Technical Consulting',
+        description:
+          'Provide expert IT advice to help organizations optimize their technology solutions and operations.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Business Development',
+        description: 'Identify and pursue new business opportunities to expand our client base and service offerings.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Administrative Support',
+        description: 'Keep our operations running smoothly with your organizational and administrative expertise.',
+        icon: 'tabler:clipboard',
+      },
+      {
+        title: 'IT Professional Roles',
+        description:
+          'Work directly with our clients on contract or permanent positions across various IT disciplines and technologies.',
+        icon: 'tabler:code',
+      },
+    ]}
+  />
+
+  <!-- Current Openings Section -->
+  <section class="py-16 bg-gray-50 dark:bg-slate-800" id="current-openings">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold tracking-tight sm:text-5xl mb-4 font-heading">Current Openings</h2>
+        <p class="text-xl text-gray-600 dark:text-slate-400">
+          Explore our available positions and find your perfect role.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
+        <div class="border border-gray-200 dark:border-slate-600 rounded-lg p-6 bg-white dark:bg-slate-700 shadow-md">
+          <h3 class="font-bold text-xl mb-2">Senior IT Recruiter</h3>
+          <p class="text-gray-600 dark:text-slate-300 mb-4">Remote, Full-time</p>
+          <p class="mb-4">
+            Join our talent acquisition team to source and place top IT professionals with our clients.
+          </p>
+          <a href="/openings" class="text-primary-600 hover:underline font-semibold">Learn More →</a>
+        </div>
+
+        <div class="border border-gray-200 dark:border-slate-600 rounded-lg p-6 bg-white dark:bg-slate-700 shadow-md">
+          <h3 class="font-bold text-xl mb-2">Technical Account Manager</h3>
+          <p class="text-gray-600 dark:text-slate-300 mb-4">New York, Full-time</p>
+          <p class="mb-4">Manage client relationships and ensure successful IT staffing placements.</p>
+          <a href="/openings" class="text-primary-600 hover:underline font-semibold">Learn More →</a>
+        </div>
+
+        <div class="border border-gray-200 dark:border-slate-600 rounded-lg p-6 bg-white dark:bg-slate-700 shadow-md">
+          <h3 class="font-bold text-xl mb-2">IT Consultant - Cloud Solutions</h3>
+          <p class="text-gray-600 dark:text-slate-300 mb-4">Chicago, Contract</p>
+          <p class="mb-4">Provide expert consulting on cloud migration and infrastructure optimization.</p>
+          <a href="/openings" class="text-primary-600 hover:underline font-semibold">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/openings" class="btn btn-primary">View All Openings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Talent Community Section -->
+  <section class="py-16" id="talent-community">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl font-bold tracking-tight sm:text-5xl mb-4 font-heading">Join Our Talent Community</h2>
+          <p class="text-xl text-gray-600 dark:text-slate-400 mb-6">
+            Don't see a position that matches your skills? Join our talent community to stay updated on future
+            opportunities that fit your expertise and career goals.
+          </p>
+          <ul class="mb-6 space-y-2">
+            <li class="flex items-center">
+              <div class="bg-primary-100 p-1 rounded-full mr-2">
+                <span class="text-primary-600">✓</span>
+              </div>
+              <span>Receive tailored job alerts</span>
+            </li>
+            <li class="flex items-center">
+              <div class="bg-primary-100 p-1 rounded-full mr-2">
+                <span class="text-primary-600">✓</span>
+              </div>
+              <span>Get insider tips on our hiring process</span>
+            </li>
+            <li class="flex items-center">
+              <div class="bg-primary-100 p-1 rounded-full mr-2">
+                <span class="text-primary-600">✓</span>
+              </div>
+              <span>Be considered for positions before they're publicly posted</span>
+            </li>
+          </ul>
+          <div class="mt-8">
+            <a href="/talent" class="btn btn-primary">Submit Your Resume</a>
+          </div>
+        </div>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+            alt="Talent Community"
+            class="rounded-lg shadow-md w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Widget ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Find answers to common questions about careers at AA Cognitech."
+    items={[
+      {
+        title: 'What is the hiring process at AA Cognitech?',
+        description:
+          'Our typical hiring process includes an initial application review, a phone screening, one or more interviews with the hiring team, and potentially a technical assessment for certain roles. The entire process usually takes 2-3 weeks.',
+      },
+      {
+        title: 'Do you offer remote work options?',
+        description:
+          'Yes, many positions at AA Cognitech offer remote or hybrid work arrangements. The specific work arrangement depends on the role and team requirements.',
+      },
+      {
+        title: 'What benefits do you offer to employees?',
+        description:
+          'We offer a comprehensive benefits package including health insurance, retirement plans, paid time off, professional development opportunities, and more. Specific benefits may vary by location and position.',
+      },
+      {
+        title: "I don't see a position that matches my skills. Can I still apply?",
+        description:
+          'Yes! We encourage you to join our talent community by submitting your resume. This allows us to consider you for future opportunities that match your skills and experience.',
+      },
+      {
+        title: 'Do you hire internationally?',
+        description:
+          'Yes, as a company with a global resource pool, we hire talent from around the world for both remote positions and for our international client placements.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Search Openings',
+        href: '/openings',
+      },
+      {
+        variant: 'secondary',
+        text: 'Submit Your Resume',
+        href: '/talent',
+      },
+    ]}
+    title="Ready to take the next step in your career?"
+    subtitle="Join AA Cognitech's team of IT professionals and discover opportunities to grow, innovate, and make an impact."
+  />
+</Layout>

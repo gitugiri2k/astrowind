@@ -2,40 +2,35 @@ import { isUnpicCompatible, unpicOptimizer, astroAsseetsOptimizer } from './imag
 import type { ImageMetadata } from 'astro';
 import type { OpenGraph } from '@astrolib/seo';
 
-const load = async function () {
-  let images: Record<string, () => Promise<unknown>> | undefined = undefined;
+let cachedImages: Record<string, () => Promise<unknown>> | undefined;
+
+/** Loads local images from the assets folder */
+const loadImages = async (): Promise<typeof cachedImages> => {
   try {
-    images = import.meta.glob('~/assets/images/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,JPEG,JPG,PNG,TIFF,WEBP,GIF,SVG}');
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
-    // continue regardless of error
+    return import.meta.glob('~/assets/images/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,JPEG,JPG,PNG,TIFF,WEBP,GIF,SVG}');
+  } catch {
+    return undefined;
   }
-  return images;
 };
 
-let _images: Record<string, () => Promise<unknown>> | undefined = undefined;
-
-/** */
+/** Caches and returns local image imports */
 export const fetchLocalImages = async () => {
-  _images = _images || (await load());
-  return _images;
+  if (!cachedImages) {
+    cachedImages = await loadImages();
+  }
+  return cachedImages;
 };
 
-/** */
+/** Finds and returns the correct image (as a URL or ImageMetadata) */
 export const findImage = async (
   imagePath?: string | ImageMetadata | null
 ): Promise<string | ImageMetadata | undefined | null> => {
-  // Not string
-  if (typeof imagePath !== 'string') {
-    return imagePath;
-  }
+  if (typeof imagePath !== 'string') return imagePath;
 
-  // Absolute paths
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('/')) {
     return imagePath;
   }
 
-  // Relative paths or not "~/assets/"
   if (!imagePath.startsWith('~/assets/images')) {
     return imagePath;
   }
@@ -43,69 +38,69 @@ export const findImage = async (
   const images = await fetchLocalImages();
   const key = imagePath.replace('~/', '/src/');
 
-  return images && typeof images[key] === 'function'
-    ? ((await images[key]()) as { default: ImageMetadata })['default']
-    : null;
-};
-
-/** */
-export const adaptOpenGraphImages = async (
-  openGraph: OpenGraph = {},
-  astroSite: URL | undefined = new URL('')
-): Promise<OpenGraph> => {
-  if (!openGraph?.images?.length) {
-    return openGraph;
+  if (images && typeof images[key] === 'function') {
+    const imported = (await images[key]()) as { default: ImageMetadata };
+    return imported.default;
   }
 
-  const images = openGraph.images;
+  return null;
+};
+
+/** Adapts OpenGraph image objects with metadata or optimized URLs */
+export const adaptOpenGraphImages = async (
+  openGraph: OpenGraph = {},
+  astroSite: URL = new URL('')
+): Promise<OpenGraph> => {
+  if (!openGraph.images?.length) return openGraph;
+
   const defaultWidth = 1200;
   const defaultHeight = 626;
 
   const adaptedImages = await Promise.all(
-    images.map(async (image) => {
-      if (image?.url) {
-        const resolvedImage = (await findImage(image.url)) as ImageMetadata | string | undefined;
-        if (!resolvedImage) {
-          return {
-            url: '',
-          };
-        }
+    openGraph.images.map(async (image) => {
+      if (!image?.url) return { url: '' };
 
-        let _image;
+      const resolvedImage = await findImage(image.url);
 
-        if (
-          typeof resolvedImage === 'string' &&
-          (resolvedImage.startsWith('http://') || resolvedImage.startsWith('https://')) &&
-          isUnpicCompatible(resolvedImage)
-        ) {
-          _image = (await unpicOptimizer(resolvedImage, [defaultWidth], defaultWidth, defaultHeight, 'jpg'))[0];
-        } else if (resolvedImage) {
-          const dimensions =
-            typeof resolvedImage !== 'string' && resolvedImage?.width <= defaultWidth
-              ? [resolvedImage?.width, resolvedImage?.height]
-              : [defaultWidth, defaultHeight];
-          _image = (
-            await astroAsseetsOptimizer(resolvedImage, [dimensions[0]], dimensions[0], dimensions[1], 'jpg')
-          )[0];
-        }
+      if (!resolvedImage) return { url: '' };
 
-        if (typeof _image === 'object') {
-          return {
-            url: 'src' in _image && typeof _image.src === 'string' ? String(new URL(_image.src, astroSite)) : '',
-            width: 'width' in _image && typeof _image.width === 'number' ? _image.width : undefined,
-            height: 'height' in _image && typeof _image.height === 'number' ? _image.height : undefined,
-          };
-        }
-        return {
-          url: '',
-        };
+      // remote image with Unpic support
+      if (typeof resolvedImage === 'string' && resolvedImage.startsWith('http') && isUnpicCompatible(resolvedImage)) {
+        const [optimized] = await unpicOptimizer(resolvedImage, [defaultWidth], defaultWidth, defaultHeight, 'jpg');
+        return formatImageObject(optimized, astroSite);
       }
 
-      return {
-        url: '',
-      };
+      // local image metadata
+      if (typeof resolvedImage !== 'string') {
+        const useOriginalSize = resolvedImage.width && resolvedImage.width <= defaultWidth;
+        const width = useOriginalSize ? resolvedImage.width : defaultWidth;
+        const height = useOriginalSize ? resolvedImage.height : defaultHeight;
+
+        const [optimized] = await astroAsseetsOptimizer(resolvedImage, [width], width, height, 'jpg');
+        return formatImageObject(optimized, astroSite);
+      }
+
+      return { url: '' };
     })
   );
 
-  return { ...openGraph, ...(adaptedImages ? { images: adaptedImages } : {}) };
+  return {
+    ...openGraph,
+    images: adaptedImages,
+  };
 };
+
+/** Formats an optimized image object for OpenGraph */
+function formatImageObject(
+  image: { src?: string; width?: number; height?: number } | string,
+  astroSite: URL
+): { url: string; width?: number; height?: number } {
+  if (typeof image !== 'object') return { url: '' };
+
+  const url = image.src ? new URL(image.src, astroSite).toString() : '';
+  return {
+    url,
+    width: image.width,
+    height: image.height,
+  };
+}

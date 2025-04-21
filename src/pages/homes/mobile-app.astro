@@ -1,8 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
-import Header from '~/components/widgets/Header.astro';
-
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features3 from '~/components/widgets/Features3.astro';
@@ -27,24 +24,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Fragment slot="announcement"></Fragment>
-  <Fragment slot="header">
-    <Header
-      position="left"
-      links={[
-        { text: 'Services', href: '#' },
-        { text: 'Features', href: '#' },
-        { text: 'About', href: '#' },
-      ]}
-      actions={[
-        {
-          text: 'Download',
-          href: '#download',
-        },
-      ]}
-      isSticky
-      showToggleTheme
-    />
-  </Fragment>
+  <Fragment slot="header"> </Fragment>
 
   <!-- Hero2 Widget ******************* -->
 
